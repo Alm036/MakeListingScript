@@ -72,6 +72,8 @@ namespace XamlToDocxConverter
             heading.Range.Text = $"Листинг №{listingNumber} - Код \"{fileName}\"";
             heading.Range.Font.Name = "Times New Roman";
             heading.Range.Font.Size = 14;
+            heading.Format.SpaceAfter = 0;
+            heading.Range.ParagraphFormat.LineSpacingRule = WdLineSpacing.wdLineSpace1pt5;
             heading.Range.InsertParagraphAfter();
 
             // Создаем таблицу для кода
@@ -91,9 +93,11 @@ namespace XamlToDocxConverter
             // Настраиваем шрифт для кода - Courier New 10
             table.Range.Font.Name = "Courier New";
             table.Range.Font.Size = 10;
+            table.Range.ParagraphFormat.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
             
             // Добавляем отступ после таблицы
             doc.Paragraphs.Add();
         }
+
     }
 }
